@@ -1,5 +1,7 @@
 {
   "name": "klaskita-strapi",
+  "description": "klaskita web project",
+  "author": "Umma Ahimsha",
   "version": "0.1.0",
   "private": true,
   "scripts": {
