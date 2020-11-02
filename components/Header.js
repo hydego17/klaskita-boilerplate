@@ -112,6 +112,7 @@ const HeaderStyled = styled.header`
   }
 
   .button {
+    cursor: pointer;
     @media (min-width: 1023px) {
       display: none;
     }
@@ -120,7 +121,7 @@ const HeaderStyled = styled.header`
 
 const ResponsiveMenu = styled.div`
   @media (max-width: 1023px) {
-    display: ${(props) => (props.openMenu ? "block" : "none")};
+    display: ${({ openMenu }) => (openMenu ? "block" : "none")};
     background: #dfe4ea;
     padding-top: 3rem;
     top: 0;
