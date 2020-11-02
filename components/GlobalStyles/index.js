@@ -36,6 +36,19 @@ const GlobalStyles = () => (
           width: 100%;
         }
 
+        form {
+          margin: 0 2rem;
+          display: flex;
+          flex: 1;
+        }
+        input {
+          border-radius: 5px;
+          border: 1px solid gray;
+          outline: none;
+          width: 100%;
+          padding: 0.45rem;
+        }
+
         .container {
           max-width: 1200px;
           width: 100%;

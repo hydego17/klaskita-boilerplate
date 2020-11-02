@@ -5,6 +5,9 @@ import GlobalStyles from "components/GlobalStyles"
 const theme = {
   colors: {
     primary: "#222f3e",
+    orange: "#ffa502",
+    light_gray: "#ced6e0",
+    dark_gray: "#a4b0be",
   },
 }
 

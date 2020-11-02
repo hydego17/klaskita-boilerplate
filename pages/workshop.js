@@ -5,6 +5,7 @@ import Class from "components/Class"
 export default function Program({ programs }) {
   return (
     <div className="container">
+      <h1>Available Class</h1>
       {programs.map((program) => (
         <Class key={program.id} program={program} />
       ))}

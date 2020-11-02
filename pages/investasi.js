@@ -1,7 +1,7 @@
 export default function Shop() {
   return (
     <div className="container">
-      <h1>Shop</h1>
+      <h1>Investasi</h1>
     </div>
   )
 }

@@ -5,9 +5,6 @@ import HamburgerMenu from "react-hamburger-menu"
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false)
-  const handleMenu = () => {
-    setOpenMenu(!openMenu)
-  }
 
   return (
     <>
@@ -22,17 +19,18 @@ function Header() {
           </div>
 
           <div className="nav-links">
+            <Link href="/workshop">
+              <a>Workshop</a>
+            </Link>
+            <Link href="/investasi">
+              <a>Investasi</a>
+            </Link>
             <Link href="/about">
-              <a>about</a>
+              <a>About</a>
             </Link>
-            <Link href="/program">
-              <a>program</a>
-            </Link>
-            <Link href="/shop">
-              <a>shop</a>
-            </Link>
+
             <Link href="/login">
-              <a>sign in</a>
+              <a>Sign In</a>
             </Link>
           </div>
         </div>
@@ -41,7 +39,7 @@ function Header() {
       <MobileMenu>
         <HamburgerMenu
           isOpen={openMenu}
-          menuClicked={handleMenu}
+          menuClicked={() => setOpenMenu(!openMenu)}
           width={20}
           height={14}
           strokeWidth={2}
@@ -54,17 +52,17 @@ function Header() {
 
       {/* Responsive Menu */}
       <ResponsiveMenu openMenu={openMenu}>
+        <Link href="/investasi">
+          <a>Investasi</a>
+        </Link>
+        <Link href="/workshop">
+          <a>Workshop</a>
+        </Link>
         <Link href="/about">
-          <a>about</a>
-        </Link>
-        <Link href="/program">
-          <a>program</a>
-        </Link>
-        <Link href="/shop">
-          <a>shop</a>
+          <a>About</a>
         </Link>
         <Link href="/login">
-          <a>sign in</a>
+          <a>Sign In</a>
         </Link>
       </ResponsiveMenu>
     </>
@@ -79,8 +77,6 @@ const HeaderStyled = styled.header`
   border-bottom: 1px solid #dfe4ea;
 
   .container {
-    position: relative;
-    z-index: 3;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
@@ -92,6 +88,8 @@ const HeaderStyled = styled.header`
 
   .nav-links {
     display: flex;
+
+    align-items: center;
 
     @media (max-width: 1023px) {
       display: none;
@@ -129,8 +127,7 @@ const ResponsiveMenu = styled.div`
   display: none;
 
   @media (max-width: 1023px) {
-    display: block;
-    opacity: ${({ openMenu }) => (openMenu ? 1 : 0)};
+    display: ${({ openMenu }) => (openMenu ? "block" : "none")};
     background: #fff;
     top: 0;
     right: 0;
