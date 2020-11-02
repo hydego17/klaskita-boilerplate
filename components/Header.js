@@ -21,20 +21,6 @@ function Header() {
             </Link>
           </div>
 
-          <div className="button">
-            <HamburgerMenu
-              isOpen={openMenu}
-              menuClicked={handleMenu}
-              width={20}
-              height={14}
-              strokeWidth={2}
-              rotate={0}
-              color="black"
-              borderRadius={0}
-              animationDuration={0.3}
-            />
-          </div>
-
           <div className="nav-links">
             <Link href="/about">
               <a>about</a>
@@ -51,6 +37,20 @@ function Header() {
           </div>
         </div>
       </HeaderStyled>
+
+      <MobileMenu>
+        <HamburgerMenu
+          isOpen={openMenu}
+          menuClicked={handleMenu}
+          width={20}
+          height={14}
+          strokeWidth={2}
+          rotate={0}
+          color="black"
+          borderRadius={0}
+          animationDuration={0.3}
+        />
+      </MobileMenu>
 
       {/* Responsive Menu */}
       <ResponsiveMenu openMenu={openMenu}>
@@ -74,11 +74,13 @@ function Header() {
 const HeaderStyled = styled.header`
   position: fixed;
   width: 100%;
-  z-index: 2;
+  z-index: -1;
   background: white;
   border-bottom: 1px solid #dfe4ea;
 
   .container {
+    position: relative;
+    z-index: 3;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
@@ -110,26 +112,35 @@ const HeaderStyled = styled.header`
     display: inline-block;
     width: 175px;
   }
+`
 
-  .button {
-    cursor: pointer;
-    @media (min-width: 1023px) {
-      display: none;
-    }
+const MobileMenu = styled.div`
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  z-index: 2;
+  cursor: pointer;
+  @media (min-width: 1023px) {
+    display: none;
   }
 `
 
 const ResponsiveMenu = styled.div`
+  display: none;
+
   @media (max-width: 1023px) {
-    display: ${({ openMenu }) => (openMenu ? "block" : "none")};
-    background: #dfe4ea;
-    padding-top: 3rem;
+    display: block;
+    opacity: ${({ openMenu }) => (openMenu ? 1 : 0)};
+    background: #fff;
     top: 0;
-    left: 0;
+    right: 0;
     position: absolute;
-    width: 60vw;
-    height: 70vh;
-    z-index: 1;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transition: all 0.5s ease;
+    text-align: right;
+    padding: 4rem 1rem;
 
     a {
       display: block;
