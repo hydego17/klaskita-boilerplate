@@ -43,13 +43,13 @@ function Header() {
         <HamburgerMenu
           isOpen={openMenu}
           menuClicked={() => setOpenMenu(!openMenu)}
-          width={20}
-          height={14}
+          width={18}
+          height={15}
           strokeWidth={2}
           rotate={0}
-          color="black"
+          color="#2f3542"
           borderRadius={0}
-          animationDuration={0.3}
+          animationDuration={0.4}
         />
       </MobileMenu>
 
@@ -131,21 +131,26 @@ const ResponsiveMenu = styled.div`
 
   @media (max-width: 1023px) {
     display: block;
-    visibility: ${({ openMenu }) => (openMenu ? "visible" : "hidden")};
-    opacity: ${({ openMenu }) => (openMenu ? 1 : 0)};
+    opacity: 0;
     background: #fff;
+    width: 100%;
+    height: 100%;
     top: 0;
     right: 0;
     position: fixed;
-    width: 100%;
-    height: 100%;
     z-index: 3;
     transition: opacity 0.5s ease;
     text-align: right;
     padding: 4rem 1rem;
+    ${({ openMenu }) =>
+      openMenu &&
+      `
+    opacity: 1;
+    
+  `}
 
     a {
-      display: block;
+      display: ${({ openMenu }) => (openMenu ? "block" : "none")};
       padding: 1rem 0;
     }
   }

@@ -11,6 +11,7 @@ const GlobalStyles = () => (
           padding: 0;
           margin: 0;
           box-sizing: border-box;
+          -webkit-tap-highlight-color: transparent;
           -webkit-font-smoothing: antialiased;
           text-rendering: optimizeLegibility;
         }

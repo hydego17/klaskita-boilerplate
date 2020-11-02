@@ -28,7 +28,6 @@ const ClassStyled = styled.div`
   background-color: ${({ theme }) => theme.colors.orange};
   display: flex;
   flex-direction: row-reverse;
-  border: 1px solid #ced6e0;
   border-radius: 5px;
   margin: 1rem 0;
   padding: 1rem;
