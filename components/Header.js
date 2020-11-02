@@ -74,7 +74,7 @@ function Header() {
 const HeaderStyled = styled.header`
   position: fixed;
   width: 100%;
-  z-index: -1;
+  z-index: 2;
   background: white;
   border-bottom: 1px solid #dfe4ea;
 
@@ -118,7 +118,7 @@ const MobileMenu = styled.div`
   position: absolute;
   top: 1.5rem;
   right: 1rem;
-  z-index: 2;
+  z-index: 5;
   cursor: pointer;
   @media (min-width: 1023px) {
     display: none;
@@ -137,8 +137,8 @@ const ResponsiveMenu = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 0;
-    transition: all 0.5s ease;
+    z-index: 3;
+    transition: opacity 0.5s ease;
     text-align: right;
     padding: 4rem 1rem;
 
