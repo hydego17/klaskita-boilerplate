@@ -10,7 +10,7 @@ export default function MobileMenu({ openMenu, setOpenMenu }) {
         width={18}
         height={15}
         strokeWidth={2}
-        rotate={0}
+        rotate={180}
         color="#2f3542"
         borderRadius={0}
         animationDuration={0.4}

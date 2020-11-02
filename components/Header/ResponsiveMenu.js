@@ -45,8 +45,14 @@ const ResponsiveNav = styled.div`
   `}
 
     a {
+      font-size: 1.3rem;
+      font-weight: bolder;
       display: ${({ openMenu }) => (openMenu ? "block" : "none")};
       padding: 1rem 0;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `
