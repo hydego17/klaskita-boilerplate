@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import styled from "@emotion/styled"
 import HamburgerMenu from "react-hamburger-menu"
@@ -6,6 +6,9 @@ import HamburgerMenu from "react-hamburger-menu"
 function Header() {
   const [openMenu, setOpenMenu] = useState(false)
 
+  useEffect(() => {
+    window.on
+  }, [])
   return (
     <>
       <HeaderStyled>
@@ -113,7 +116,7 @@ const HeaderStyled = styled.header`
 `
 
 const MobileMenu = styled.div`
-  position: absolute;
+  position: fixed;
   top: 1.5rem;
   right: 1rem;
   z-index: 5;
@@ -127,11 +130,13 @@ const ResponsiveMenu = styled.div`
   display: none;
 
   @media (max-width: 1023px) {
-    display: ${({ openMenu }) => (openMenu ? "block" : "none")};
+    display: block;
+    visibility: ${({ openMenu }) => (openMenu ? "visible" : "hidden")};
+    opacity: ${({ openMenu }) => (openMenu ? 1 : 0)};
     background: #fff;
     top: 0;
     right: 0;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     z-index: 3;
