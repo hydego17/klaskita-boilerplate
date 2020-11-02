@@ -1,48 +1,100 @@
+import React, { useState } from "react"
 import Link from "next/link"
 import styled from "@emotion/styled"
+import HamburgerMenu from "react-hamburger-menu"
 
 function Header() {
-  return (
-    <HeaderStyled>
-      <div className="container">
-        <div className="logo">
-          <Link href="/">
-            <a>
-              <img src="images/logo.svg" alt="klaskita" />
-            </a>
-          </Link>
-        </div>
+  const [openMenu, setOpenMenu] = useState(false)
+  const handleMenu = () => {
+    setOpenMenu(!openMenu)
+  }
 
-        <div className="nav-links">
-          <Link href="/about">
-            <a>about</a>
-          </Link>
-          <Link href="/program">
-            <a>program</a>
-          </Link>
-          <Link href="/shop">
-            <a>shop</a>
-          </Link>
-          <Link href="/login">
-            <a>sign in</a>
-          </Link>
+  return (
+    <>
+      <HeaderStyled>
+        <div className="container">
+          <div className="logo">
+            <Link href="/">
+              <a>
+                <img src="images/logo.svg" alt="klaskita" />
+              </a>
+            </Link>
+          </div>
+
+          <div className="button">
+            <HamburgerMenu
+              isOpen={openMenu}
+              menuClicked={handleMenu}
+              width={20}
+              height={14}
+              strokeWidth={2}
+              rotate={0}
+              color="black"
+              borderRadius={0}
+              animationDuration={0.3}
+            />
+          </div>
+
+          <div className="nav-links">
+            <Link href="/about">
+              <a>about</a>
+            </Link>
+            <Link href="/program">
+              <a>program</a>
+            </Link>
+            <Link href="/shop">
+              <a>shop</a>
+            </Link>
+            <Link href="/login">
+              <a>sign in</a>
+            </Link>
+          </div>
         </div>
-      </div>
-    </HeaderStyled>
+      </HeaderStyled>
+
+      {/* Responsive Menu */}
+      <ResponsiveMenu openMenu={openMenu}>
+        <Link href="/about">
+          <a>about</a>
+        </Link>
+        <Link href="/program">
+          <a>program</a>
+        </Link>
+        <Link href="/shop">
+          <a>shop</a>
+        </Link>
+        <Link href="/login">
+          <a>sign in</a>
+        </Link>
+      </ResponsiveMenu>
+    </>
   )
 }
 
 const HeaderStyled = styled.header`
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  background: white;
   border-bottom: 1px solid #dfe4ea;
 
   .container {
-    @media (min-width: 1023px) {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
+
   .nav-links {
+    display: flex;
+
+    @media (max-width: 1023px) {
+      display: none;
+    }
+
     a {
       display: block;
       padding: 1rem 0;
@@ -53,8 +105,35 @@ const HeaderStyled = styled.header`
       }
     }
   }
+
   .logo {
-    max-width: 175px;
+    display: inline-block;
+    width: 175px;
+  }
+
+  .button {
+    @media (min-width: 1023px) {
+      display: none;
+    }
+  }
+`
+
+const ResponsiveMenu = styled.div`
+  @media (max-width: 1023px) {
+    display: ${(props) => (props.openMenu ? "block" : "none")};
+    background: #dfe4ea;
+    padding-top: 3rem;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 60vw;
+    height: 70vh;
+    z-index: 1;
+
+    a {
+      display: block;
+      padding: 1rem 0;
+    }
   }
 `
 

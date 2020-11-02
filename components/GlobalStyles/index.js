@@ -28,6 +28,10 @@ const GlobalStyles = () => (
           text-decoration: none;
         }
 
+        ul {
+          list-style: none;
+        }
+
         img {
           width: 100%;
         }
@@ -37,6 +41,7 @@ const GlobalStyles = () => (
           width: 100%;
           margin: 0 auto;
           padding: 0.5rem 1rem;
+          padding-top: 5rem;
         }
       `}
     />
