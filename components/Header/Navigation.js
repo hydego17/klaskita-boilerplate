@@ -1,19 +1,18 @@
-import React from "react"
 import styled from "@emotion/styled"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
-export default function Navigation() {
+export default function Navigation({ navs }) {
+  const router = useRouter()
   return (
     <NavStyled>
-      <Link href="/workshop">
-        <a>Workshop</a>
-      </Link>
-      <Link href="/investasi">
-        <a>Investasi</a>
-      </Link>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
+      {navs.map((nav) => (
+        <Link key={nav.id} href={nav.slug}>
+          <a className={router.pathname === nav.slug ? "active" : ""}>
+            {nav.title}
+          </a>
+        </Link>
+      ))}
 
       <Link href="/login">
         <a>Sign In</a>
@@ -31,12 +30,10 @@ const NavStyled = styled.div`
   }
 
   a {
-    display: block;
-    padding: 1rem 0;
+    padding: 0.75rem;
 
-    @media (min-width: 1023px) {
-      display: initial;
-      padding: 0.75rem;
+    &.active {
+      font-weight: bolder;
     }
   }
 `

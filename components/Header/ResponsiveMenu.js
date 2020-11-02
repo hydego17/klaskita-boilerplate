@@ -4,11 +4,11 @@ import Link from "next/link"
 export default function ResponsiveMenu({ openMenu }) {
   return (
     <ResponsiveNav openMenu={openMenu}>
-      <Link href="/investasi">
-        <a>Investasi</a>
-      </Link>
       <Link href="/workshop">
         <a>Workshop</a>
+      </Link>
+      <Link href="/investasi">
+        <a>Investasi</a>
       </Link>
       <Link href="/about">
         <a>About</a>
@@ -32,6 +32,7 @@ const ResponsiveNav = styled.div`
     top: 0;
     right: 0;
     position: fixed;
+    z-index: -99;
 
     transition: opacity 0.5s ease;
     text-align: right;

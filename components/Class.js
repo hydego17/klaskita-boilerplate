@@ -3,7 +3,16 @@ import styled from "@emotion/styled"
 
 export default function Class({ program }) {
   const { API_URL } = process.env
-  const { name, description, images, date, duration, location, price } = program
+  const {
+    id,
+    name,
+    description,
+    images,
+    date,
+    duration,
+    location,
+    price,
+  } = program
 
   return (
     <ClassStyled>
@@ -16,7 +25,7 @@ export default function Class({ program }) {
         <p>Durasi: {duration} </p>
         <p>Lokasi: {location} </p>
 
-        <Link href="#">
+        <Link href="/workshop/[id]" as={`/workshop/${id}`}>
           <button>Lihat Kelas</button>
         </Link>
       </div>

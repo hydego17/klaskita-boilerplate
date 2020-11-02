@@ -1,13 +1,23 @@
-import React, { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useRouter } from "next/router"
+
 import styled from "@emotion/styled"
 
 import Navigation from "./Navigation"
 import MobileMenu from "./MobileMenu"
 import ResponsiveMenu from "./ResponsiveMenu"
 
-export default function Header() {
+export default function Header({ navs }) {
   const [openMenu, setOpenMenu] = useState(false)
+
+  // handle state when route change
+  const router = useRouter()
+  const currentRoute = router.pathname
+
+  useEffect(() => {
+    setOpenMenu(false)
+  }, [currentRoute])
 
   return (
     <>
@@ -21,7 +31,7 @@ export default function Header() {
             </Link>
           </div>
 
-          <Navigation />
+          <Navigation navs={navs} />
         </div>
       </HeaderStyled>
 
