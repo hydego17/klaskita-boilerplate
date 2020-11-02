@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
-import { useRouter } from "next/router"
 
 import styled from "@emotion/styled"
 
@@ -10,14 +9,6 @@ import ResponsiveMenu from "./ResponsiveMenu"
 
 export default function Header({ navs }) {
   const [openMenu, setOpenMenu] = useState(false)
-
-  // handle state when route change
-  const router = useRouter()
-  const currentRoute = router.pathname
-
-  useEffect(() => {
-    setOpenMenu(false)
-  }, [currentRoute])
 
   return (
     <>
@@ -39,7 +30,11 @@ export default function Header({ navs }) {
       <MobileMenu openMenu={openMenu} setOpenMenu={setOpenMenu} />
 
       {/* Responsive Menu */}
-      <ResponsiveMenu openMenu={openMenu} />
+      <ResponsiveMenu
+        navs={navs}
+        openMenu={openMenu}
+        setOpenMenu={setOpenMenu}
+      />
     </>
   )
 }
