@@ -24,7 +24,6 @@ export default function Navigation() {
 
 const NavStyled = styled.div`
   display: flex;
-
   align-items: center;
 
   @media (max-width: 1023px) {

@@ -23,7 +23,7 @@ const MobileStyled = styled.div`
   position: fixed;
   top: 1.5rem;
   right: 1rem;
-  z-index: 5;
+  z-index: 3;
   cursor: pointer;
   @media (min-width: 1023px) {
     display: none;

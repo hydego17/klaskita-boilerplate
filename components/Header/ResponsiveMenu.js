@@ -32,7 +32,7 @@ const ResponsiveNav = styled.div`
     top: 0;
     right: 0;
     position: fixed;
-    z-index: 3;
+
     transition: opacity 0.5s ease;
     text-align: right;
     padding: 4rem 1rem;
@@ -40,6 +40,7 @@ const ResponsiveNav = styled.div`
       openMenu &&
       `
     opacity: 1;
+    z-index:2;
     
   `}
 
