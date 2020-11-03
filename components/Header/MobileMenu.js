@@ -1,7 +1,12 @@
+import { useContext } from "react"
+import HeaderContext from "../../Contexts/HeaderContext"
+
 import styled from "@emotion/styled"
 import HamburgerMenu from "react-hamburger-menu"
 
-export default function MobileMenu({ openMenu, setOpenMenu }) {
+export default function MobileMenu() {
+  const { openMenu, setOpenMenu } = useContext(HeaderContext)
+
   return (
     <MobileStyled>
       <HamburgerMenu

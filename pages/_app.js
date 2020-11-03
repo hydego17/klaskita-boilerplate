@@ -1,13 +1,13 @@
 import fetch from "isomorphic-unfetch"
+import { ThemeProvider } from "emotion-theming"
 
 import Header from "components/Header"
-
-import { ThemeProvider } from "emotion-theming"
 import GlobalStyles from "components/GlobalStyles"
+import ContextWrapper from "components/ContextWrapper"
 
-import getConfig from "next/config"
 import SEO from "../next-seo.config"
 import { DefaultSeo } from "next-seo"
+import getConfig from "next/config"
 
 const theme = {
   colors: {
@@ -22,9 +22,14 @@ function MyApp({ Component, pageProps, navs }) {
   return (
     <>
       <DefaultSeo {...SEO} />
+
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Header navs={navs} />
+
+        <ContextWrapper navs={navs}>
+          <Header />
+        </ContextWrapper>
+
         <Component {...pageProps} />
       </ThemeProvider>
     </>

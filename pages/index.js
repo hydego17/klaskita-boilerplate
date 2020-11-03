@@ -32,13 +32,7 @@ const HeaderStyled = styled.div`
     right: 0;
     width: 100%;
     height: 600px;
-    background: rgb(181, 152, 1);
-    background: linear-gradient(
-      90deg,
-      rgba(181, 152, 1, 0.5) 0%,
-      rgba(181, 173, 0, 0.5) 35%,
-      rgba(255, 252, 195, 0.5) 100%
-    );
+    background: rgba(0, 0, 0, 0.4);
   }
 
   .container {

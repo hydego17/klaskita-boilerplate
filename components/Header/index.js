@@ -7,9 +7,7 @@ import Navigation from "./Navigation"
 import MobileMenu from "./MobileMenu"
 import ResponsiveMenu from "./ResponsiveMenu"
 
-export default function Header({ navs }) {
-  const [openMenu, setOpenMenu] = useState(false)
-
+export default function Header() {
   return (
     <>
       <HeaderStyled>
@@ -22,19 +20,15 @@ export default function Header({ navs }) {
             </Link>
           </div>
 
-          <Navigation navs={navs} />
+          <Navigation />
         </div>
       </HeaderStyled>
 
       {/* Burger Menu */}
-      <MobileMenu openMenu={openMenu} setOpenMenu={setOpenMenu} />
+      <MobileMenu />
 
       {/* Responsive Menu */}
-      <ResponsiveMenu
-        navs={navs}
-        openMenu={openMenu}
-        setOpenMenu={setOpenMenu}
-      />
+      <ResponsiveMenu />
     </>
   )
 }

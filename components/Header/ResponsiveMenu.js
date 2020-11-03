@@ -1,18 +1,23 @@
-import styled from "@emotion/styled"
+import { useContext } from "react"
+import HeaderContext from "../../Contexts/HeaderContext"
+
 import Link from "next/link"
 import { useRouter } from "next/router"
+import styled from "@emotion/styled"
 
-export default function ResponsiveMenu({ openMenu, setOpenMenu, navs }) {
+export default function ResponsiveMenu() {
+  const { menus, openMenu, setOpenMenu } = useContext(HeaderContext)
   const router = useRouter()
+
   return (
     <ResponsiveNav openMenu={openMenu} setOpenMenu={openMenu}>
-      {navs.map((nav) => (
-        <Link key={nav.id} href={nav.slug}>
+      {menus.map((menu) => (
+        <Link key={menu.id} href={menu.slug}>
           <a
             onClick={() => setOpenMenu(!openMenu)}
-            className={router.pathname === nav.slug ? "active" : ""}
+            className={router.pathname === menu.slug ? "active" : ""}
           >
-            {nav.title}
+            {menu.title}
           </a>
         </Link>
       ))}

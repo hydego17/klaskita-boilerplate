@@ -1,15 +1,19 @@
-import styled from "@emotion/styled"
+import { useContext } from "react"
+import HeaderContext from "../../Contexts/HeaderContext"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import styled from "@emotion/styled"
 
-export default function Navigation({ navs }) {
+export default function Navigation() {
+  const { menus } = useContext(HeaderContext)
+
   const router = useRouter()
   return (
     <NavStyled>
-      {navs.map((nav) => (
-        <Link key={nav.id} href={nav.slug}>
-          <a className={router.pathname === nav.slug ? "active" : ""}>
-            {nav.title}
+      {menus.map((menu) => (
+        <Link key={menu.id} href={menu.slug}>
+          <a className={router.pathname === menu.slug ? "active" : ""}>
+            {menu.title}
           </a>
         </Link>
       ))}
