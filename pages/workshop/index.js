@@ -1,27 +1,42 @@
 import styled from "@emotion/styled"
 import fetch from "isomorphic-unfetch"
+import { NextSeo } from "next-seo"
 
 import Class from "components/Class"
 
 export default function Program({ programs }) {
-  return (
-    <div className="container">
-      <WorkshopStyled>
-        <h1>Our Program</h1>
-        <ul>
-          <li>F & B</li>
-          <li>Woodworking</li>
-          <li>Texttile</li>
-          <li>Kriya</li>
-          <li>Besi</li>
-        </ul>
-        <h1>Available Class</h1>
-      </WorkshopStyled>
+  const SEO = {
+    title: "Workshop",
+    description:
+      "Workshop yang disediakan oleh klaskita dan beragam kelas yang tersedia",
 
-      {programs.map((program) => (
-        <Class key={program.id} program={program} />
-      ))}
-    </div>
+    openGraph: {
+      title: "Workshop",
+      description:
+        "Workshop yang disediakan oleh klaskita dan beragam kelas yang tersedia",
+    },
+  }
+  return (
+    <>
+      <NextSeo {...SEO} />
+      <div className="container">
+        <WorkshopStyled>
+          <h1>Our Program</h1>
+          <ul>
+            <li>F & B</li>
+            <li>Woodworking</li>
+            <li>Texttile</li>
+            <li>Kriya</li>
+            <li>Besi</li>
+          </ul>
+          <h1>Available Class</h1>
+        </WorkshopStyled>
+
+        {programs.map((program) => (
+          <Class key={program.id} program={program} />
+        ))}
+      </div>
+    </>
   )
 }
 

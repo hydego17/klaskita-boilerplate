@@ -1,5 +1,6 @@
 import getConfig from "next/config"
 import fetch from "isomorphic-unfetch"
+import { NextSeo } from "next-seo"
 
 export default function Program({ program }) {
   const { API_URL } = process.env
@@ -13,14 +14,32 @@ export default function Program({ program }) {
     location,
     price,
   } = program
+
+  const SEO = {
+    title: `Workshop | ${name}`,
+    description: `klas yang tersedia (${name})`,
+
+    openGraph: {
+      title: `Workshop | ${name}`,
+      description: `klas yang tersedia (${name})`,
+    },
+  }
   return (
-    <div className="container">
-      <div className="poster">
-        <img src={API_URL + images.url} alt={name} />
+    <>
+      <NextSeo {...SEO} />
+      <div className="container">
+        <h1>{name}</h1>
+        <p>{description}</p>
+        <p>{date}</p>
+        <p>{duration}</p>
+        <p>{location}</p>
+        <p> Rp {price},-</p>
+
+        <div className="poster">
+          <img src={API_URL + images.url} alt={name} />
+        </div>
       </div>
-      <h1>{name}</h1>
-      <p>{description}</p>
-    </div>
+    </>
   )
 }
 
