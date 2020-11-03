@@ -34,6 +34,7 @@ const GlobalStyles = () => (
         }
 
         img {
+          object-fit: cover;
           width: 100%;
         }
 
