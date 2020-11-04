@@ -1,6 +1,8 @@
 import getConfig from "next/config"
+import styled from "@emotion/styled"
 import fetch from "isomorphic-unfetch"
 import { NextSeo } from "next-seo"
+import Link from "next/link"
 
 export default function Program({ program }) {
   const { API_URL } = process.env
@@ -28,16 +30,24 @@ export default function Program({ program }) {
     <>
       <NextSeo {...SEO} />
       <div className="container">
-        <h1>{name}</h1>
-        <p>{description}</p>
-        <p>{date}</p>
-        <p>{duration}</p>
-        <p>{location}</p>
-        <p> Rp {price},-</p>
+        <ProgramStyled>
+          <div className="body">
+            <h1>{name}</h1>
+            <p>{description}</p>
+            <p>{date}</p>
+            <p>{duration}</p>
+            <p>{location}</p>
+            <p> Rp {price},-</p>
 
-        <div className="poster">
-          <img src={API_URL + images.url} alt={name} />
-        </div>
+            <Link href="/registerClass">
+              <button>Daftar</button>
+            </Link>
+          </div>
+
+          <div className="poster">
+            <img src={API_URL + images.url} alt={name} />
+          </div>
+        </ProgramStyled>
       </div>
     </>
   )
@@ -57,3 +67,24 @@ export async function getServerSideProps(ctx) {
     },
   }
 }
+
+const ProgramStyled = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  border-radius: 5px;
+  margin: 1rem 0;
+  padding: 1rem;
+
+  .poster {
+    border-radius: 5px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .body {
+    flex: 2;
+  }
+`

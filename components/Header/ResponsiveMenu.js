@@ -23,7 +23,7 @@ export default function ResponsiveMenu() {
       ))}
 
       <Link href="/login">
-        <a>Sign In</a>
+        <a onClick={() => setOpenMenu(!openMenu)}>Sign In</a>
       </Link>
     </ResponsiveNav>
   )

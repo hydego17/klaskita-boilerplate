@@ -36,9 +36,9 @@ function MyApp({ Component, pageProps, navs }) {
   )
 }
 
-// SSR only works in pages so we'll be using getInitalProps
 const { publicRuntimeConfig } = getConfig()
 
+// SSR only works in pages so we'll be using getInitalProps
 MyApp.getInitialProps = async () => {
   const res = await fetch(`${publicRuntimeConfig.API_URL}/navigations`)
   const navs = await res.json()

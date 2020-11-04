@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 
 export default function Home() {
   return (
-    <HeaderStyled>
+    <HomeStyled>
       <div className="hero">
         <div className="container">
           <h1>We help you learn things you love</h1>
@@ -12,11 +12,11 @@ export default function Home() {
           </p>
         </div>
       </div>
-    </HeaderStyled>
+    </HomeStyled>
   )
 }
 
-const HeaderStyled = styled.div`
+const HomeStyled = styled.div`
   .hero {
     background: url("images/home.jpg") no-repeat center center/cover;
     width: 100%;

@@ -1,12 +1,9 @@
 import { Global, css } from "@emotion/core"
-import emotionNormalize from "emotion-normalize"
 
 const GlobalStyles = () => (
   <>
     <Global
       styles={css`
-        ${emotionNormalize}
-
         * {
           padding: 0;
           margin: 0;
@@ -42,13 +39,20 @@ const GlobalStyles = () => (
           margin: 0 2rem;
           display: flex;
           flex: 1;
-        }
-        input {
-          border-radius: 5px;
-          border: 1px solid gray;
-          outline: none;
-          width: 100%;
-          padding: 0.45rem;
+
+          input {
+            font-size: 0.9rem;
+            border-radius: 5px;
+            border: 1px solid gray;
+            outline: none;
+            width: 100%;
+            padding: 0.5rem;
+          }
+
+          button {
+            padding: 0.5rem;
+            cursor: pointer;
+          }
         }
 
         .container {
